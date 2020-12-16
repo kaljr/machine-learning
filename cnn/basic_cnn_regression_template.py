@@ -194,7 +194,7 @@ net.to(device) # must move network to device being used
 
 
 # Set up loss function and optimization algorithm
-loss_fn = nn.MSELoss()
+loss_fn = nn.MSELoss() # MSE is good for regression (not classification)
 # optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 optimizer = optim.Adam(net.parameters(), lr=0.001, betas=(0.9,0.999), eps=1e-08)
 
