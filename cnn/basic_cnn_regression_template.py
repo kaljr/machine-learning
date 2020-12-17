@@ -41,9 +41,6 @@ if cuda_available:
 else:
   print('using', device)
 
-# This will print a summary of the CNN that includes number of network parameters, output dimensions, etc
-summary(model,(3,512,1024))
-
 # Define file constants (change to suit project)
 ROOT_DATA_PATH = ("D:/some-dir")
 
@@ -195,6 +192,8 @@ net = nn.Sequential(
 )
 net.to(device) # must move network to device being used
 
+# This will print a summary of the CNN that includes number of network parameters, output dimensions, etc
+summary(model,(3, INPUT_IMG_H, INPUT_IMG_W)) # second argument is input dimensions ie: (3,512,1024)
 
 # Set up loss function and optimization algorithm
 loss_fn = nn.MSELoss() # MSE is good for regression (not classification)
