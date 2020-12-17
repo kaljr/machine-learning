@@ -23,6 +23,7 @@ from os import listdir
 import time
 from torch.utils.data import Dataset, DataLoader
 from torch.multiprocessing import Pool, Process, set_start_method
+from torchsummary import summary
 
 # For cuda/multiprocessing compatability
 try:
@@ -40,6 +41,8 @@ if cuda_available:
 else:
   print('using', device)
 
+# This will print a summary of the CNN that includes number of network parameters, output dimensions, etc
+summary(model,(3,512,1024))
 
 # Define file constants (change to suit project)
 ROOT_DATA_PATH = ("D:/some-dir")
